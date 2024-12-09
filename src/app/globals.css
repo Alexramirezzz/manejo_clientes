@@ -1,0 +1,64 @@
+/* Estilos base de Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Asegura que el body ocupe toda la altura de la pantalla */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Contenedor principal */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/* Otros estilos */
+.container {
+  @apply max-w-7xl mx-auto p-6;
+}
+
+a {
+  @apply text-blue-600 hover:text-blue-800;
+  text-decoration: none;
+}
+
+nav {
+  @apply bg-blue-600 p-4 rounded-lg shadow-lg;
+}
+
+nav ul {
+  @apply flex list-none p-0 gap-6;
+}
+
+nav ul li a {
+  @apply text-white text-lg font-semibold;
+}
+
+nav ul li a:hover {
+  @apply underline;
+}
+
+button {
+  @apply bg-blue-600 text-white py-2 px-6 rounded-lg cursor-pointer transition-all ease-in-out duration-300;
+}
+
+button:hover {
+  @apply bg-blue-700;
+}
+
+.modal-overlay {
+  @apply fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center;
+}
+
+.message {
+  @apply mt-4 text-center text-lg text-green-600;
+}
+
+.error {
+  @apply mt-4 text-center text-lg text-red-600;
+}

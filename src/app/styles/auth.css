@@ -1,0 +1,144 @@
+/* Estilos generales para el contenedor de la autenticación */
+.auth-container {
+  min-height: 100vh;
+  background: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9zci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTExL21vdGFybzdfcGhvdG9fb2ZfYV9hYnN0cmFjdF9saW5lX2J1c2luZXNzX3Byb2Zlc3Npb25hbF9ibHVlX2JhY18wNDdmYzIzOS1hZDk1LTQ5NjktYWM3Ni0yNWE1NDZkNWQ5NGRfMS5qcGc.jpg') no-repeat center center fixed;
+  background-size: cover; /* Asegura que la imagen ocupe todo el fondo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  background-attachment: fixed; /* Fija el fondo */
+}
+
+
+/* Decorative squares in background */
+.auth-container::before,
+.auth-container::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(59, 130, 246, 0.1);
+  transform: rotate(45deg);
+}
+
+.auth-container::before {
+  top: 10%;
+  left: 15%;
+}
+
+.auth-container::after {
+  bottom: 10%;
+  right: 15%;
+}
+
+/* Floating squares animation */
+@keyframes float {
+  0% { transform: rotate(45deg) translate(0, 0); }
+  50% { transform: rotate(45deg) translate(0, 20px); }
+  100% { transform: rotate(45deg) translate(0, 0); }
+}
+
+.auth-container::before {
+  animation: float 15s infinite ease-in-out;
+}
+
+.auth-container::after {
+  animation: float 18s infinite ease-in-out reverse;
+}
+
+
+
+/* Estilos para el modal (cuadrado central) */
+.auth-box {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  animation: fadeIn 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Estilo para los formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+form h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #0070f3;
+}
+
+form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+form button {
+  padding: 10px;
+  background-color: #0070f3;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+form button:hover:not(:disabled) {
+  background-color: #005bb5;
+}
+
+form p {
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+  margin-top: -10px;
+}
+
+form p.error {
+  color: red;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .auth-container {
+    padding: 1rem;
+  }
+
+  .auth-box {
+    padding: 1.5rem;
+  }
+}
